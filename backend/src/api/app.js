@@ -1,11 +1,10 @@
 const express = require('express');
 const cors = require('cors');
+const orderRouter = require('../routers/orderRouter')
+
 const app = express();
 
 app.use(cors());
-
-app.get('/', (req, res) => {
-  res.send('Hello world');
-});
+app.use('/order', orderRouter);
 
 module.exports = app;
