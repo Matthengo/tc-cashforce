@@ -1,0 +1,3 @@
+Na tabela de orders os campos cnpjId, userId, buyerId e providerId tem relacionamento com as tabelas cnpjs, users, buyers e providers respectivamente.
+
+buyers = sacados; providers = cedentes
