@@ -27,11 +27,6 @@ SET time_zone = "+00:00";
 -- Estrutura da tabela `buyers`
 --
 
-DROP DATABASE IF EXISTS `tc-cashforce`;
-CREATE DATABASE IF NOT EXISTS `tc-cashforce`;
-
-USE `tc-cashforce`;
-
 CREATE TABLE `buyers` (
   `id` int(11) NOT NULL,
   `name` varchar(255) NOT NULL,
