@@ -4,12 +4,15 @@ import OrderContext from './OrderContext';
 
 import apiCalls from '../api/apiCalls';
 function OrderProvider({ children }) {
+  const [user, setUser] = useState({});
   const [orders, setOrders] = useState([])
 
   useEffect(() => {
     const asyncCallback = async () => {
-      const result = await apiCalls.getAllOrdersByUserId(1);
-      setOrders(result.data);
+      const userFetch = await apiCalls.getUserById(1); // User "login" simulation
+      const ordersFetch = await apiCalls.getAllOrdersByUserId(userFetch.data.id);
+      setUser(userFetch.data)
+      setOrders(ordersFetch.data);
     }
 
     asyncCallback();
@@ -17,6 +20,7 @@ function OrderProvider({ children }) {
 
   const contextValues = {
     orders,
+    user,
   }
 
   return (
