@@ -1,12 +1,11 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Grid, Typography } from "@mui/material";
 import NotaFiscalCard from './NotaFiscalCard';
 
-const rows = [
-
-];
+import OrderContext from "../../context/OrderContext";
 
 function NotasFiscaisTable() {
+  const { orders } = useContext(OrderContext)
   return (
     <Fragment>
       <Grid 
@@ -23,8 +22,8 @@ function NotasFiscaisTable() {
         <Grid item xs><Typography variant='subtitle2'>STATUS</Typography></Grid>
         <Grid item xs />
       </Grid>
-      { rows.map((row) => (
-        <NotaFiscalCard key={row.name} data={row} />
+      { orders.map((order) => (
+        <NotaFiscalCard key={order.orderNfId} data={order} />
       )) }
     </Fragment>
   )

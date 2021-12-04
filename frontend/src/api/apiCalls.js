@@ -6,7 +6,13 @@ const api = axios.create({
 
 const USER_ORDER_URL = '/order/user'
 
-export const getAllOrdersByUserId = async (userid) => {
+const getAllOrdersByUserId = async (userid) => {
   const result = await api.get(`${USER_ORDER_URL}/${userid}`);
-  return result.data;
+  return result;
 }
+
+const apiCalls = {
+  getAllOrdersByUserId
+}
+
+export default apiCalls;
