@@ -1,4 +1,4 @@
-import { Box, Stack, Typography } from '@mui/material'
+import { Stack, Typography } from '@mui/material'
 import React from 'react'
 import cashForceLogo from '../cashforceLogo.svg';
 import AccountBoxIcon from '@mui/icons-material/AccountBox';
