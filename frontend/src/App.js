@@ -1,9 +1,13 @@
 import React from 'react'
+import OrderProvider from './context/OrderProvider'
 import HomePage from './pages/HomePage'
 
 function App() {
   return (
-    <HomePage />
+    <OrderProvider>
+      <HomePage />
+    </OrderProvider>
+    
   )
 }
 
