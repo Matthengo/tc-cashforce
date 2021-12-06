@@ -23,7 +23,8 @@ module.exports = (sequelize, DataTypes) => {
     nNf: DataTypes.STRING,
     CTE: DataTypes.STRING,
     orderStatusBuyer: DataTypes.STRING,
-    orderStatusProvider: DataTypes.STRING
+    orderStatusProvider: DataTypes.STRING,
+    value: DataTypes.STRING,
   },
   { timestamps: false, tableName: 'orders' });
 

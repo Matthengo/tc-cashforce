@@ -2,9 +2,13 @@ import { Button, Grid, Typography, Collapse } from '@mui/material';
 import { Box } from '@mui/system';
 import React, { useState } from 'react';
 
-function NotaFiscalCard(data) {
-  const [expand, setExpand] = useState(false);
+import { formatDate, formatMoney } from '../../utils/helperFunctions'
+import statusArray from '../../utils/orderStatusArray';
 
+function NotaFiscalCard({ data }) {
+  const [expand, setExpand] = useState(false);
+  
+  console.log(data.value);
   return (
     <Box
       sx={{ 
@@ -21,12 +25,12 @@ function NotaFiscalCard(data) {
           container columns={ 12 }
           sx={{ padding: 2, paddingRight: 0 }}
         >
-          <Grid item xs><Typography variant='body1'>{`<notafiscal>`}</Typography></Grid>
-          <Grid item xs><Typography variant='body1'>{`<sacado>`}</Typography></Grid>
-          <Grid item xs><Typography variant='body1'>{`<cedente>`}</Typography></Grid>
-          <Grid item xs><Typography variant='body1'>{`<emissão>`}</Typography></Grid>
-          <Grid item xs><Typography sx={{ color: '#00AD8C' }} variant='body1'>{`<valor>`}</Typography></Grid>
-          <Grid item xs><Typography variant='body1'>{`<status>`}</Typography></Grid>
+          <Grid item xs><Typography variant='body1'>{data.orderNumber}</Typography></Grid>
+          <Grid item xs><Typography variant='body1'>{data.buyer.name}</Typography></Grid>
+          <Grid item xs><Typography variant='body1'>{data.provider.name}</Typography></Grid>
+          <Grid item xs><Typography variant='body1'>{formatDate(data.emissionDate)}</Typography></Grid>
+          <Grid item xs><Typography sx={{ color: '#00AD8C' }} variant='body1'>{formatMoney(data.value, 'BRL')}</Typography></Grid>
+          <Grid item xs><Typography variant='body1'>{statusArray[data.orderStatusBuyer]}</Typography></Grid>
           <Grid item xs>
             <Button 
               size="small" 
